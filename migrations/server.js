@@ -6,5 +6,5 @@ const categoryRoutes=require('./routes/category')
 app.use(express.json())
 app.use('/categories',categoryRoutes)
 app.listen(PORT,()=>{
-    
+   
 })

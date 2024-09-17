@@ -7,3 +7,10 @@
     "pg": "^8.12.0"
   }
 }
+{
+  "name": "api-filter-and-postman-collection",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"  
+  }
+}
