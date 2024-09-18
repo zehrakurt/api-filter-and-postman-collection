@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-// Route dosyalarını buraya ekleyin
+
 const categoryRoutes = require('./src/routes/category');
 
 app.use(express.json());
