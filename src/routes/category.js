@@ -5,7 +5,7 @@ const Category =require('../../migrations/category')
 
 router.get('/',async (req,res)=>{
 try{
-const categories=await Category.getAll()
+const categories=await Category.getAll(req.query)
 res.json(categories)
 }catch(error){
     res.status(400).json({message:'error'})
@@ -46,13 +46,29 @@ res.json(updatedCategory)
     }
 })
 
-router.delete('/:id', async (req,res)=>{
-    try{
-        const deletedCategory=await Category.delete(req.params.id)
-        res.json(deletedCategory)
-    }catch(error){
-        res.status(400).json({message:'error'})
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+  
+   
+    if (!id || isNaN(id)) {
+      return res.status(400).json({ message: 'Invalid ID' });
     }
-})
+  
+    try {
+      const deletedCategory = await Category.delete(id); 
+  
+   
+      if (!deletedCategory || deletedCategory.length === 0) {
+        return res.status(404).json({ message: 'Category not found' });
+      }
+  
+   
+      res.status(200).json(deletedCategory);
+    } catch (error) {
+      console.error('Delete Error:', error); 
+      res.status(500).json({ message: 'An error occurred while deleting the category' });
+    }
+  });
+  
 
 module.exports=router
