@@ -28,7 +28,7 @@ const Post = {
     return knex ('posts').where({id}).first()
 },
 update:(id,post)=>{
-  return knex('posts').where({id}).update(post).returning('+')
+  return knex('posts').where({id}).update(post).returning('*')
 },
 delete:(id)=>{
   return knex ('posts').where({id}).update({deleted_at:new Date()}).returning('*')

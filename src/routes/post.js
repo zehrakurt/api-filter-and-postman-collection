@@ -34,7 +34,7 @@ if(!post){
   }
 })
 
-router.patch('/:id',async (req,res)=>{
+router.put('/:id',async (req,res)=>{
   try{
 const updatedPost=await Post.update(req.params.id,req.body)
 res.json(updatedPost)
