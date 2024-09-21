@@ -8,7 +8,8 @@ const commentRoutes=require('./src/routes/comment')
 app.use(express.json());
 app.use('/categories', categoryRoutes);
 app.use('/posts', postRoutes);
-app.use('/comments',commentRoutes)
+app.use('/comments', commentRoutes);  
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

@@ -4,13 +4,14 @@ const Comment = require('../../migrations/comment');
 
 
 router.get('/', async (req, res) => {
-    try {
-      const comments = await Comment.getAll(req.query);  
-      res.json(comments);  
-    } catch (error) {
+  try {
+      const comments = await Comment.getAll(req.query);
+      res.json(comments);
+  } catch (error) {
       res.status(400).json({ message: 'Yorumları alırken hata oluştu' });
-    }
+  }
 });
+
 
 
 router.get('/:id', async (req, res) => {
